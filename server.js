@@ -10,7 +10,6 @@ app.use(cors())
 app.use(morgan('dev'))
 
 app.use(express.static(path.join(__dirname, 'client', 'dist')))
-
 app.use('/images', express.static('images/'))
 app.use('/articles',articleRoutes)
 
