@@ -9,16 +9,17 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan('dev'))
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')))
 app.use('/images', express.static('images/'))
 app.use('/articles',articleRoutes)
+
+app.use(express.static(path.join(__dirname, 'client', 'dist')))
 
 app.use((req,res,next) => {
     res.status(400).json('Not Found')
 })
 
 app.use((err,req,res,next) => {
-    console.log(err.stack)
+    console.error(err.stack)
     res.status(500).json(err)
 })
 
