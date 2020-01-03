@@ -3,7 +3,7 @@ const initialState = {
         {
             id:1,
             title:'10 Best Practices For Sports',
-            category:'Sports',
+            category:'sports',
             picture:'2photo-pots-498UjzgcwA0-unsplash.jpg',
             date:'Mar. 30, 2019',
             author:'Margaux Maxwell',
@@ -12,7 +12,7 @@ const initialState = {
         {
             id:2,
             title:'Never Changing Sports Will Eventually Destroy You',
-            category:'Sports',
+            category:'sports',
             picture:'adrianna-van-groningen-NvD9zZ7nn8Q-unsplash.jpg',
             date:'Dec. 9, 2019',
             author:'Fatima Head',
@@ -21,7 +21,7 @@ const initialState = {
         {
             id:3,
             title:'Who Else Wants To Know The Mystery Behind Sports?',
-            category:'Sports',
+            category:'sports',
             picture:'annie-spratt-1YnBzhJISg4-unsplash.jpg',
             date:'Aug. 8, 2019',
             author:'Felix Martins',
@@ -30,7 +30,7 @@ const initialState = {
         {
             id:4,
             title:'Who Else Wants To Be Successful With Sports',
-            category:'Sports',
+            category:'sports',
             picture:'annie-spratt-SPS796v4KmM-unsplash.jpg',
             date:'May 9, 2019',
             author:'Hanna Parrish',
@@ -39,7 +39,7 @@ const initialState = {
         {
             id:5,
             title:'5 Secrets: How To Use Sports To Create A Successful Business(Product)',
-            category:'Sports',
+            category:'sports',
             picture:'annie-spratt-wtk4VH8EU20-unsplash.jpg',
             date:'Dec. 24, 2019',
             author:'Abbi Evans',
@@ -48,7 +48,7 @@ const initialState = {
         {
             id:6,
             title:'At Last, The Secret To Sports Is Revealed',
-            category:'Sports',
+            category:'sports',
             picture:'annie-spratt-yrzBgqapG1I-unsplash.jpg',
             date:'Jan. 1, 2020',
             author:'Anna Burton',

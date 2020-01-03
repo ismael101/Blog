@@ -3,7 +3,7 @@ const initialState = {
         {
             id:1,
             title:'Congratulations! Your Politics Is (Are) About To Stop Being Relevant',
-            category:'Politics',
+            category:'politics',
             picture:'george-brits-wvO5tPfTpug-unsplash.jpg',
             date:'Mar. 28, 2019',
             author:'Felix Martins',
@@ -12,7 +12,7 @@ const initialState = {
         {
             id:2,
             title:'Want A Thriving Business? Focus On Politics!',
-            category:'Politics',
+            category:'politics',
             picture:'jairph-jPUCKipRkMU-unsplash.jpg',
             date:'Apr. 24, 2019',
             author:'Hanna Parrish',
@@ -21,7 +21,7 @@ const initialState = {
         {
             id:3,
             title:'Should Fixing Politics Take 60 Steps?',
-            category:'Politics',
+            category:'politics',
             picture:'joao-silas-qEL9_TmC1nY-unsplash.jpg',
             date:'Apr. 3, 2019',
             author:'Abbi Evans',
@@ -30,7 +30,7 @@ const initialState = {
         {
             id:4,
             title:'How To Make Your Politics Look Like A Million Bucks',
-            category:'Politics',
+            category:'politics',
             picture:'joe-mcdaniel-KhhOAsE5M6Y-unsplash.jpg',
             date:'Aug. 23, 2019',
             author:'Anna Burton',
@@ -39,7 +39,7 @@ const initialState = {
         {
             id:5,
             title:'Listen To Your Customers. They Will Tell You All About Politics',
-            category:'Politics',
+            category:'politics',
             picture:'johnny-chen-YUhblDKGBNo-unsplash.jpg',
             date:'Jun. 21, 2019',
             author:'Md Emerson',
@@ -48,7 +48,7 @@ const initialState = {
         {
             id:6,
             title:'Picture Your Politics On Top. Read This And Make It So',
-            category:'Politics',
+            category:'politics',
             picture:'luca-zanon-1LiUw22uP7Q-unsplash.jpg',
             date:'Jan. 7, 2019',
             author:'Umair Turnbull',

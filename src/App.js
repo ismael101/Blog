@@ -24,10 +24,10 @@ function App() {
           </Navbar>
             <Switch>
               <Route path='/' exact component={Index}></Route>
-              <Route path='/sports' component={Category}></Route>
-              <Route path='/politics' component={Category}></Route>
-              <Route path='/travel' component={Category}></Route>
-              <Route path='/business' component={Category}></Route>
+              <Route path='/sports' exact component={Category}></Route>
+              <Route path='/politics' exact component={Category}></Route>
+              <Route path='/travel' exact component={Category}></Route>
+              <Route path='/business' exact component={Category}></Route>
               <Route path='/sports/:id' component={Article}></Route>
               <Route path='/politics/:id' component={Article}></Route>
               <Route path='/travel/:id' component={Article}></Route>

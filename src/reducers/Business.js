@@ -3,7 +3,7 @@ const intialState = {
         {
             id:1,
             title:'How To Teach Business Like A Pro',
-            category:'Business',
+            category:'business',
             picture:'pop-zebra-xDxiO7sldis-unsplash.jpg',
             date:'Oct. 6, 2019',
             author:'Yasemin Carey',
@@ -12,7 +12,7 @@ const intialState = {
         {
             id:2,
             title:'Get Rid of Business For Good',
-            category:'Business',
+            category:'business',
             picture:'wei-pan-Ta0A1miYZKc-unsplash.jpg',
             date:'Aug. 19, 2019',
             author:'Ayana Bartlett',
@@ -21,7 +21,7 @@ const intialState = {
         {
             id:3,
             title:'Proof That Business Is Exactly What You Are Looking For',
-            category:'Business',
+            category:'business',
             picture:'ray-rui-0mqrqbwjKc4-unsplash.jpg',
             date:'May 10, 2019',
             author:'Margaux Maxwell',
@@ -30,7 +30,7 @@ const intialState = {
         {
             id:4,
             title:'Who Else Wants To Know The Mystery Behind Business?',
-            category:'Business',
+            category:'business',
             picture:'sergey-pesterev-9-5-WYEBDz0-unsplash.jpg',
             date:'Jun. 25, 2019',
             author:'Fatima Head',
@@ -39,7 +39,7 @@ const intialState = {
         {
             id:5,
             title:'17 Tricks About Business You Wish You Knew Before',
-            category:'Business',
+            category:'business',
             picture:'sergey-pesterev-wdMWMHXUpsc-unsplash.jpg',
             date:'Mar. 12, 2019',
             author:'Felix Martins',
@@ -48,7 +48,7 @@ const intialState = {
         {
             id:6,
             title:'Could This Report Be The Definitive Answer To Your Business?',
-            category:'Business',
+            category:'business',
             picture:'toa-heftiba-pcbSQTQr2-I-unsplash.jpg',
             date:'Mar. 25, 2019',
             author:'Hanna Parrish',

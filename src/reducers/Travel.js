@@ -3,7 +3,7 @@ const initialState = {
         {
             id:1,
             title:'5 Easy Ways You Can Turn Travel Into Success',
-            category:'Travel',
+            category:'travel',
             picture:'avel-chuklanov-9cx4-QowgLc-unsplash.jpg',
             date:'Jun. 27, 2019',
             author:'Md Emerson',
@@ -12,7 +12,7 @@ const initialState = {
         {
             id:2,
             title:'Old School Travel',
-            category:'Travel',
+            category:'travel',
             picture:'bill-wegener-LqOO5Ko0zSo-unsplash.jpg',
             date:'Jul. 20, 2019',
             author:'Umair Turnbull',
@@ -21,7 +21,7 @@ const initialState = {
         {
             id:3,
             title:"In 10 Minutes, I'll Give You The Truth About Travel",
-            category:'Travel',
+            category:'travel',
             picture:'casey-allen-H3U_HA1arI4-unsplash.jpg',
             date:'Apr. 16, 2019',
             author:'Yasemin Carey',
@@ -30,7 +30,7 @@ const initialState = {
         {
             id:4,
             title:'The Ultimate Guide To Travel',
-            category:'Travel',
+            category:'travel',
             picture:'damian-patkowski-T-LfvX-7IVg-unsplash.jpg',
             date:'May 13, 2019',
             author:'Ayana Bartlett',
@@ -39,7 +39,7 @@ const initialState = {
         {
             id:5,
             title:'13 Myths About Travel',
-            category:'Travel',
+            category:'travel',
             picture:'david-clarke-sN6d60TySV0-unsplash.jpg',
             date:'Jan. 27, 2019',
             author:'Margaux Maxwell',
@@ -48,7 +48,7 @@ const initialState = {
         {
             id:6,
             title:'Beware The Travel Scam',
-            category:'Travel',
+            category:'travel',
             picture:'eva-blue-SfPOkp6-2eA-unsplash.jpg',
             date:'Dec. 27, 2019',
             author:'Fatima Head',
