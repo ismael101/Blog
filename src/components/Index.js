@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { Jumbotron, Container, Card, Row, Col, CardDeck, Carousel, Badge, Button, CardColumns, CardGroup, Media} from 'react-bootstrap'
+import {Container, Card, Row, Col, CardDeck, Badge, Media} from 'react-bootstrap'
 class Index extends Component{
     render(){
         return(
-            <div>
+            <div style={{fontFamily:'Gelasio'}}>
                <Container className='px-5 py-5 ' fluid>
                    <Row>
                        <Col xs={12} sm={8} md={8} lg={8}>
@@ -132,9 +132,9 @@ class Index extends Component{
                 </Container>
                 <hr/>
                 <Container fluid className='px-5 py-5'>
-                        <CardDeck>
-                                <Card className='text-right'>
-                                    <Row noGutters>
+                        <CardDeck className='my-3'>
+                                <Card className='text-left'>
+                                    <Row>
                                         <Col md='4'>
                                         <img
                                         width={320}
@@ -143,18 +143,23 @@ class Index extends Component{
                                         alt="Generic placeholder"
                                     />
                                         </Col>
-                                        <Col md='8' className=''>
+                                        <Col md='auto'>
+                                        </Col>
+                                        <Col md='7'>
                                         <Card.Body>
-                                        <Card.Title>{this.props.politics[2].title.slice(0,40)} ..</Card.Title>
+                                        <Card.Title>{this.props.politics[2].title} <Badge variant='info'>Politics</Badge> </Card.Title>
                                         <Card.Text>
-                                        {this.props.politics[2].content.slice(0,50)} ... Read More
+                                        {this.props.politics[2].content.slice(0,100)} ...
                                         </Card.Text>
                                         </Card.Body>
                                         </Col>
                                     </Row>
+                                    <Card.Footer className='text-right'>
+                                        Read More
+                                    </Card.Footer>
                                     </Card>
-                                <Card className='text-right'>
-                                    <Row noGutters>
+                                <Card className='text-left'>
+                                    <Row>
                                         <Col md='4'>
                                         <img
                                         width={320}
@@ -163,20 +168,25 @@ class Index extends Component{
                                         alt="Generic placeholder"
                                     />
                                         </Col>
-                                        <Col md='8' className=''>
+                                        <Col md='auto'>
+                                        </Col>
+                                        <Col md='7' className=''>
                                         <Card.Body>
-                                        <Card.Title>{this.props.sports[2].title.slice(0,40)} ..</Card.Title>
+                                        <Card.Title>{this.props.sports[2].title} <Badge variant='primary'>Sports</Badge></Card.Title>
                                         <Card.Text>
-                                        {this.props.sports[2].content.slice(0,50)} ... Read More
+                                        {this.props.sports[2].content.slice(0,100)} ...
                                         </Card.Text>
                                         </Card.Body>
                                         </Col>
                                     </Row>
+                                    <Card.Footer className='text-right'>
+                                        Read More
+                                    </Card.Footer>
                                     </Card>
                                 </CardDeck>
                                 <CardDeck>
-                                <Card className='text-right'>
-                                    <Row noGutters>
+                                <Card className='text-left'>
+                                    <Row>
                                         <Col md='4'>
                                         <img
                                         width={320}
@@ -185,18 +195,23 @@ class Index extends Component{
                                         alt="Generic placeholder"
                                     />
                                         </Col>
-                                        <Col md='8' className=''>
+                                        <Col md='auto'>
+                                        </Col>
+                                        <Col md='7'>
                                         <Card.Body>
-                                        <Card.Title>{this.props.business[2].title.slice(0,40)} ..</Card.Title>
+                                        <Card.Title>{this.props.business[2].title} <Badge variant='dark'>Business</Badge></Card.Title>
                                         <Card.Text>
-                                        {this.props.business[2].content.slice(0,50)} ... Read More
+                                        {this.props.business[2].content.slice(0,100)} ...
                                         </Card.Text>
                                         </Card.Body>
                                         </Col>
                                     </Row>
+                                    <Card.Footer className='text-right'>
+                                        Read More
+                                    </Card.Footer>
                                     </Card>
-                                <Card className='text-right'>
-                                    <Row noGutters>
+                                <Card className='text-left'>
+                                    <Row>
                                         <Col md='4'>
                                         <img
                                         width={320}
@@ -205,15 +220,20 @@ class Index extends Component{
                                         alt="Generic placeholder"
                                     />
                                         </Col>
-                                        <Col md='8' className=''>
+                                        <Col md='auto'>
+                                        </Col>
+                                        <Col md='7' className=''>
                                         <Card.Body>
-                                        <Card.Title>{this.props.travel[2].title.slice(0,50)} ..</Card.Title>
+                                        <Card.Title>{this.props.travel[2].title} <Badge variant='success'>Travel</Badge> </Card.Title>
                                         <Card.Text>
-                                        {this.props.travel[2].content.slice(0,50)} ... Read More
+                                        {this.props.travel[2].content.slice(0,100)} ...
                                         </Card.Text>
                                         </Card.Body>
                                         </Col>
                                     </Row>
+                                    <Card.Footer className='text-right'>
+                                        Read More
+                                    </Card.Footer>
                                     </Card>
                             </CardDeck>
                 </Container>
