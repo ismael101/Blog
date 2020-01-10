@@ -116,7 +116,7 @@ class Category extends Component{
         }
         return(
             <div className='text-left' style={{fontFamily:'Gelasio'}}>
-                <Container>
+                <Container fluid>
                 <h1 className='mt-5'>{headline()}</h1>
                 <hr/>
                 <div>
