@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Navbar, Form, Button, FormControl} from 'react-bootstrap'
+import {Navbar, Form, Button, FormControl, Nav, NavDropdown} from 'react-bootstrap'
 import {withRouter,Link} from 'react-router-dom'
 
 class Navigation extends Component{
@@ -16,16 +16,20 @@ class Navigation extends Component{
       this.setState({search:e.target.value})
       console.log(this.state.search)
     }
+    componentDidCatch(){
+
+    }
     render(){
         return(
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="light">
               <Link to='/'>
                 <Navbar.Brand>News Now</Navbar.Brand>
               </Link>
-              <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                <Form inline>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Form inline onSubmit={this.handleSearch} className="ml-auto">
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" value={this.state.search} onChange={this.handleChange}/>
-                  <Button variant="dark" onClick={this.handleSearch}>Search</Button>
+                  <Button type='submit' variant="secondary" onClick={this.handleSearch}>Search</Button>
                 </Form>
               </Navbar.Collapse>
           </Navbar>

@@ -54,7 +54,7 @@ exports.getArticle = (req,res,next) => {
 }
 
 exports.getPopular = (req,res,next) => {
-    Articles.findAll({order: [['views', 'DESC']], limit:4})
+    Articles.findAll({order: [['views', 'DESC']], limit:3})
         .then(articles => {
             if(articles){
                 res.status(200).send(articles)

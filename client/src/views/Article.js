@@ -10,6 +10,9 @@ class Article extends Component{
         let article = await axios.get(`/api/articles/${this.props.match.params.id}`)
         this.setState({article:article.data})
     }
+    componentDidCatch(error){
+        console.log(error)
+    } 
     render(){
         const article = this.state.article == null ? (
             <Container>
@@ -29,7 +32,7 @@ class Article extends Component{
                 </p>
             </div>
             </div>
-        </Container>
+            </Container>
         )
         return(
             <div>

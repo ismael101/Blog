@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {Container, Row, Col, Media, Jumbotron, Badge, Card, Button} from 'react-bootstrap'
+import {Container, Row, Col, Jumbotron, Badge, Card} from 'react-bootstrap'
+import Heading from '../components/Heading'
+import Article from '../components/Article'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 class Category extends Component{
     constructor(props){
@@ -9,116 +10,25 @@ class Category extends Component{
         this.state = {category:'',articles:[]}
     }
     async componentWillMount(){
-        try{
-            let articles = await axios.post('/api/articles/category',{category:this.props.match.params.name})
-            this.setState({category:this.props.match.params.name, articles:articles.data}) 
-        }catch(err){
-            console.log(err)
-        }
+        let articles = await axios.post('/api/articles/category',{category:this.props.match.params.name})
+        this.setState({category:this.props.match.params.name, articles:articles.data}) 
     }
+    componentDidCatch(error){
+        console.log(error)
+    } 
     render(){
+        const articleslist = this.state.articles.filter(article => article.id = this.state.articles[0].id).map(article => {
+            return(
+                <Col xl={4} className='my-3'>
+                    <Article article={article}/>
+                </Col>
+            )
+        })
         const articles = this.state.articles.length > 0 ? (
             <div>
-                    <Media>
-                    <img
-                    width={512}
-                    fluid
-                    className="mr-3"
-                    src={`/${this.state.articles[0].image}`}
-                    />
-                        <Media.Body className='py-5 px-5'>
-                            <h5>{this.state.articles[0].title}</h5>
-                            <p>
-                                {this.state.articles[0].content.substring(0,300)} ...
-                            </p>
-                            <Link to={`/article/${this.state.articles[0].id}`}>
-                                <Button variant='outline-info'>
-                                    Read More
-                                </Button>
-                            </Link>
-                        </Media.Body>
-                    </Media>
+                <Heading article={this.state.articles[0]}/>
                 <Row className='my-5'>
-                    <Col>
-                        <Card variant='light' className='h-100'>
-                            <Card.Img variant='top' src={`/${this.state.articles[1].image}`} fluid/>
-                            <Card.Title className='my-3 px-2'>
-                                {this.state.articles[1].title}
-                            </Card.Title>
-                            <Card.Body>
-                                <Card.Text>
-                                    {this.state.articles[1].content.substring(0,100)}
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                            <Link to={`/article/${this.state.articles[1].id}`}>
-                                <Button variant='outline-info'>
-                                    Read More
-                                </Button>
-                            </Link>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card variant='light' className='h-100'>
-                            <Card.Img variant='top' src={`/${this.state.articles[2].image}`} fluid/>
-                            <Card.Title className='my-3 px-2'>
-                                {this.state.articles[2].title}
-                            </Card.Title>
-                            <Card.Body>
-                                <Card.Text>
-                                    {this.state.articles[2].content.substring(0,100)}
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                            <Link to={`/article/${this.state.articles[2].id}`}>
-                                <Button variant='outline-info'>
-                                    Read More
-                                </Button>
-                            </Link>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card variant='light' className='h-100'>
-                            <Card.Img variant='top' src={`/${this.state.articles[3].image}`} fluid/>
-                            <Card.Title className='my-3 px-2'>
-                                {this.state.articles[3].title}
-                            </Card.Title>
-                            <Card.Body>
-                                <Card.Text>
-                                    {this.state.articles[3].content.substring(0,100)}
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                            <Link to={`/article/${this.state.articles[3].id}`}>
-                                <Button variant='outline-info'>
-                                    Read More
-                                </Button>
-                            </Link>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card variant='light' className='h-100'>
-                            <Card.Img variant='top' src={`/${this.state.articles[4].image}`} fluid/>
-                            <Card.Title className='my-3 px-2'>
-                                {this.state.articles[4].title}
-                            </Card.Title>
-                            <Card.Body>
-                                <Card.Text>
-                                    {this.state.articles[4].content.substring(0,100)}
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                            <Link to={`/article/${this.state.articles[4].id}`}>
-                                <Button variant='outline-info'>
-                                    Read More
-                                </Button>
-                            </Link>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
+                    {articleslist}
                 </Row>
             </div>
         ) : (
@@ -132,6 +42,7 @@ class Category extends Component{
                     <Jumbotron className='bg-light'>
                         <Badge variant='secondary' className='py-2 px-3'><h1 className='display-1 text-capitalize'><strong>{this.state.category}</strong></h1></Badge>
                     </Jumbotron>
+                    <h1 className='mt-3'>Latest Article</h1>
                     <hr/>
                     {articles}
                 </Container>

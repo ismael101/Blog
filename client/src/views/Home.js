@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {Jumbotron, Button, Card, Container, Row, Col, Navbar, Nav ,Badge} from 'react-bootstrap'
+import Article from '../components/Article'
+import {Jumbotron, Container, Row, Col, Navbar, Nav ,} from 'react-bootstrap'
 import axios from 'axios'
 class Home extends Component{
     constructor(props){
@@ -8,182 +8,42 @@ class Home extends Component{
         this.state = {latest:[],popular:[]}
     }
     async componentWillMount(){
-        try{
-            let latest = await axios.get('/api/articles/')
-            let popular = await axios.get('/api/articles/popular')
-            this.setState({latest:latest.data,popular:popular.data})
-        }catch(err){
-            console.log(err)
-        }
+        let latest = await axios.get('/api/articles/')
+        let popular = await axios.get('/api/articles/popular')
+        this.setState({latest:latest.data,popular:popular.data})
     }
+    componentDidCatch(error){
+        console.log(error)
+    } 
     render(){
+        const latestlist = this.state.latest.map(article => {
+            return(
+                <Col xl={4} className='my-3'>
+                    <Article article={article} key={article.id}/>
+                </Col>
+            )
+        })
         const latest = this.state.latest.length > 0 ? (
             <div>
-                <Card className='py-5 px-5'>
-        <Card.Title><span className='text-success'>{this.state.latest[0].category}</span>
-        <Badge variant='secondary' className='float-right'> 
-            <span className='material-icons align-top'>visibility</span>
-            <span className='ml-2 align-middle'>{this.state.latest[0].views}</span>
-        </Badge>
-        </Card.Title>
-                    <Card.Title>{this.state.latest[0].title} ...</Card.Title>
-                    <Card.Text>
-                    {this.state.latest[0].content.substring(0,150)} ...
-                    </Card.Text>
-                    <Card.Text>
-                        <Link to={`/article/${this.state.latest[0].id}`}>
-                            <Button variant='outline-info'>
-                                    Read More
-                            </Button>
-                        </Link>
-                    </Card.Text>
-                </Card>
                 <Row>
-                    <Col xs={12} sm={6}>
-                        <Card className='py-5 px-5 mt-4'>
-                            <Card.Title>
-                                <span className='text-success'>
-                                    {this.state.latest[1].category}
-                                </span>
-                                <Badge variant='secondary' className='float-right'> 
-                                    <span className='material-icons align-top'>visibility</span>
-                                    <span className='ml-2 align-middle'>{this.state.latest[1].views}</span>
-                                </Badge>
-                                </Card.Title>
-                            <Card.Title>{this.state.latest[1].title.substring(0,30)} ...</Card.Title>
-                            <Card.Text>
-                                {this.state.latest[1].content.substring(0,150)} ...
-                            </Card.Text>
-                            <Card.Text>
-                                <Link to={`/article/${this.state.latest[1].id}`}>
-                                    <Button variant='outline-info'>
-                                            Read More
-                                    </Button>
-                                </Link>
-                            </Card.Text>
-                        </Card>
-                    </Col>
-                    <Col xs={12} sm={6}>
-                        <Card className='py-5 px-5 mt-4'>
-                            <Card.Title>
-                                <span className='text-success'>{this.state.latest[2].category}</span>
-                                <Badge variant='secondary' className='float-right'> 
-                                    <span className='material-icons align-top'>visibility</span>
-                                    <span className='ml-2 align-middle'>{this.state.latest[2].views}</span>
-                                </Badge>
-                            </Card.Title>
-                            <Card.Title>{this.state.latest[2].title.substring(0,30)} ...</Card.Title>
-                            <Card.Text>
-                                {this.state.latest[2].content.substring(0,150)} ...
-                            </Card.Text>
-                            <Card.Text>
-                            <Link to={`/article/${this.state.latest[2].id}`}>
-                                <Button variant='outline-info'>
-                                        Read More
-                                </Button>
-                            </Link>
-                            </Card.Text>
-                        </Card>
-                    </Col>
+                    {latestlist}
                 </Row>
             </div>
         ) : (
             <div>
             </div>
         )
+        const popularlist = this.state.popular.map(article => {
+            return(
+                <Col xl={4} className='my-3'>
+                    <Article article={article} key={article.id}/>
+                </Col>
+            )
+        })
         const popular = this.state.popular.length > 0 ? (
             <div>
                 <Row className='mb-5'>
-                    <Col xs={12} sm={6}>
-                        <Card className='mb-3 py-5 px-5'>
-                        <Card.Title>
-                            <span className='text-success'>{this.state.popular[0].category}</span>
-                            <Badge variant='secondary' className='float-right'> 
-                                <span className='material-icons align-top'>visibility</span>
-                                <span className='ml-2 align-middle'>{this.state.popular[0].views}</span>
-                            </Badge>
-                        </Card.Title>
-                        <Card.Title>{this.state.latest[0].title.substring(0,30)} ...</Card.Title>
-                        <Card.Text>
-                        {this.state.popular[0].content.substring(0,150)} ...
-                        </Card.Text>
-                        <Card.Text>
-                        <Link to={`/article/${this.state.popular[0].id}`}>
-                            <Button variant='outline-info'>
-                                    Read More
-                            </Button>
-                        </Link>
-                        </Card.Text>
-                    </Card>
-                    </Col>
-                    <Col xs={12} sm={6}>
-                    <Card className='py-5 px-5'>
-                            <Card.Title>
-                                <span className='text-success'>{this.state.popular[1].category}</span>
-                                <Badge variant='secondary' className='float-right'> 
-                                    <span className='material-icons align-top'>visibility</span>
-                                    <span className='ml-2 align-middle'>{this.state.popular[1].views}</span>
-                                </Badge>    
-                            </Card.Title>
-                            <Card.Title>{this.state.popular[1].title.substring(0,30)} ...</Card.Title>
-                            <Card.Text>
-                                {this.state.popular[1].content.substring(0,150)} ...
-                            </Card.Text>
-                            <Card.Text>
-                            <Link to={`/article/${this.state.popular[1].id}`}>
-                                <Button variant='outline-info'>
-                                        Read More
-                                </Button>
-                            </Link>
-                            </Card.Text>
-                        </Card>
-                    </Col>
-                    <Col xs={12} sm={6}>
-                    <Card className='mb-3 py-5 px-5'>
-                            <Card.Title>
-                                <span className='text-success'>
-                                    {this.state.popular[2].category}
-                                </span>
-                                <Badge variant='secondary' className='float-right'> 
-                                    <span className='material-icons align-top'>visibility</span>
-                                    <span className='ml-2 align-middle'>{this.state.popular[2].views}</span>
-                                </Badge>
-                            </Card.Title>
-                            <Card.Title>{this.state.popular[2].title.substring(0,30)} ...</Card.Title>
-                            <Card.Text>
-                                {this.state.popular[2].content.substring(0,150)} ...
-                            </Card.Text>
-                            <Card.Text>
-                            <Link to={`/article/${this.state.popular[2].id}`}>
-                                <Button variant='outline-info'>
-                                        Read More
-                                </Button>
-                            </Link>
-                            </Card.Text>
-                        </Card>
-                        </Col>
-                        <Col xs={12} sm={6}>
-                        <Card className='py-5 px-5'>
-                            <Card.Title>
-                                <span className='text-success'>{this.state.popular[3].category}</span>
-                                <Badge variant='secondary' className='float-right'> 
-                                    <span className='material-icons align-top'>visibility</span>
-                                    <span className='ml-2 align-middle'>{this.state.popular[3].views}</span>
-                                </Badge>    
-                            </Card.Title>
-                            <Card.Title>{this.state.popular[3].title.substring(0,30)} ...</Card.Title>
-                            <Card.Text>
-                                {this.state.popular[3].content.substring(0,150)} ...
-                            </Card.Text>
-                            <Card.Text>
-                            <Link to={`/article/${this.state.popular[3].id}`}>
-                                <Button variant='outline-info'>
-                                        Read More
-                                </Button>
-                            </Link>
-                            </Card.Text>
-                        </Card>
-                    </Col>
+                    {popularlist}
                 </Row>
             </div>
         ) : (
@@ -200,19 +60,14 @@ class Home extends Component{
                         <Nav.Link href='/category/travel'>Travel</Nav.Link>
                     </Nav>
                 </Navbar>
-                <Jumbotron className='bg-dark'>
                     <Container>
-                        <h1 className='text-white'>Latest Articles</h1>
+                        <h1 className='my-5'>Latest Articles</h1>
+                        <hr/>
                         {latest}
-                    </Container>
-                </Jumbotron>
-                <br/>
-                <Jumbotron className='bg-info'>
-                    <Container>
-                        <h1 className='text-white'>Popular Articles</h1>
+                        <h1 className='my-5'>Popular Articles</h1>
+                        <hr/>
                         {popular}
                     </Container>
-                </Jumbotron>
             </div>
         )
     }
