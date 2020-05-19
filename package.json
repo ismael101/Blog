@@ -20,7 +20,5 @@
     "sequelize-cli": "^5.5.1",
     "uuid": "^8.0.0"
   },
-  "devDependencies": {
-    "sqlite3": "^4.2.0"
-  }
+  "devDependencies": {}
 }

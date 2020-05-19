@@ -12,7 +12,12 @@
     "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "username": "hgekmdwf",
+    "password": "jwCMsOR7g_VBQBfvF2oMLlxnXIV5gLo5",
+    "database": "hgekmdwf",
+    "host": "rajje.db.elephantsql.com",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "logging":true
   }
 }
