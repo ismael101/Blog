@@ -7,7 +7,7 @@ exports.getArticles = (req,res,next) => {
     if(search){
         Articles.findAll({where: {
             [Op.or]: [
-              'title', 'content', 'author', 'category'
+              'title', 'content'
             ].map(key => ({
               [key]: {
                 [Op.like]: `%${search}%`
@@ -25,7 +25,7 @@ exports.getArticles = (req,res,next) => {
               res.status(404).send(err)
           })
     }else{
-        Articles.findAll({order: [['date', 'DESC']], limit:3})
+        Articles.findAll({order: [['createdAt', 'DESC']], limit:9})
             .then(articles => {
                 if(articles){
                     res.status(200).send(articles)
@@ -46,34 +46,6 @@ exports.getArticle = (req,res,next) => {
                 res.status(200).send(article)
             }else{
                 res.status(404).send('Article Not Found')
-            }
-        })
-        .catch(err => {
-            res.status(400).send(err)
-        })
-}
-
-exports.getPopular = (req,res,next) => {
-    Articles.findAll({order: [['views', 'DESC']], limit:3})
-        .then(articles => {
-            if(articles){
-                res.status(200).send(articles)
-            }else{
-                res.status(404).send('Articles Not Found')
-            }
-        })
-        .catch(err => {
-            res.status(400).send(err)
-        })
-}
-
-exports.getCategory = (req,res,next) => {
-    Articles.findAll({where: {category: req.body.category},limit:5})
-        .then(articles => {
-            if(articles){
-                res.status(200).send(articles)
-            }else{
-                res.status(404).send('Articles Not Found')
             }
         })
         .catch(err => {

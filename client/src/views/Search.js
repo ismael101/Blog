@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Heading from '../components/Heading'
-import {Card, Container, Image, Row, Col, Button} from 'react-bootstrap'
+import {Container, Jumbotron} from 'react-bootstrap'
 import axios from 'axios'
 
 class Search extends Component{
@@ -9,12 +9,13 @@ class Search extends Component{
         this.state = {articles:[]}
     }
     async componentDidMount(){
-        let articles = await axios.get(`/api/articles/${this.props.location.search}`)
+        console.log(this.props.match.params.keyword)
+        let articles = await axios.get(`/api/articles/?search=${this.props.match.params.keyword}`)
         this.setState({articles:articles.data})
     }
-    componentDidCatch(error){
-        console.log(error)
-    } 
+    componentDidCatch(error, info) {
+        console.log(error, info)
+    }
     render(){
         const list = this.state.articles.map(article => {
             return(
@@ -33,7 +34,9 @@ class Search extends Component{
 
         return(
             <Container className='my-5'>
-                <h1 className='my-3'>Search Results {this.state.articles.length}</h1>
+                <Jumbotron style={{backgroundColor:'black'}}>
+                    <h1 className='my-3 display-2 text-white'>Search Results {this.state.articles.length}</h1>
+                </Jumbotron>
                 {listarticles}
             </Container>
         )

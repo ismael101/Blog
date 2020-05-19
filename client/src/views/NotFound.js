@@ -5,9 +5,11 @@ class NotFound extends Component{
     render(){
         return(
             <Container>
-                <h1 className='display-1'>404</h1>
-                <hr/>
-                <h2 className='display-2'>Page Not Found</h2>
+                <div className='text-white' style={{marginTop:'25%'}}>
+                    <h1 className='display-1'>404</h1>
+                    <hr/>
+                    <h2 className='display-2'>Page Not Found</h2>
+                </div>
             </Container>
         )
     }

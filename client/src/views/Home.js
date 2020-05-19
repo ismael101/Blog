@@ -1,74 +1,52 @@
 import React, {Component} from 'react'
 import Article from '../components/Article'
-import {Jumbotron, Container, Row, Col, Navbar, Nav ,} from 'react-bootstrap'
+import {Jumbotron, Container, CardColumns} from 'react-bootstrap'
 import axios from 'axios'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 class Home extends Component{
     constructor(props){
         super(props)
-        this.state = {latest:[],popular:[]}
+        this.state = {articles:[]}
     }
     async componentWillMount(){
-        let latest = await axios.get('/api/articles/')
-        let popular = await axios.get('/api/articles/popular')
-        this.setState({latest:latest.data,popular:popular.data})
+        let articles = await axios.get('/api/articles/')
+        this.setState({articles:articles.data})
     }
-    componentDidCatch(error){
-        console.log(error)
-    } 
+    componentDidCatch(error, info) {
+        console.log(error, info)
+    }  
     render(){
-        const latestlist = this.state.latest.map(article => {
+        const articleslist = this.state.articles.map(article => {
             return(
-                <Col xl={4} className='my-3'>
-                    <Article article={article} key={article.id}/>
-                </Col>
+                <Article article={article} key={article.id}/>
             )
         })
-        const latest = this.state.latest.length > 0 ? (
+        const articles = this.state.articles.length > 0 ? (
             <div>
-                <Row>
-                    {latestlist}
-                </Row>
+                    {articleslist}
             </div>
         ) : (
             <div>
             </div>
         )
-        const popularlist = this.state.popular.map(article => {
-            return(
-                <Col xl={4} className='my-3'>
-                    <Article article={article} key={article.id}/>
-                </Col>
-            )
-        })
-        const popular = this.state.popular.length > 0 ? (
-            <div>
-                <Row className='mb-5'>
-                    {popularlist}
-                </Row>
-            </div>
-        ) : (
-            <div>
-            </div>
-        )
+        AOS.init({duration : 2000})      
         return(
             <div>
-                <Navbar bg="light" variant="light" sticky='top' style={{background:'transparent'}}>
-                    <Nav className="mx-auto">
-                        <Nav.Link href='/category/politics'>Politics</Nav.Link>
-                        <Nav.Link href='/category/economy'>Economy</Nav.Link>
-                        <Nav.Link href='/category/sports'>Sports</Nav.Link>
-                        <Nav.Link href='/category/travel'>Travel</Nav.Link>
-                    </Nav>
-                </Navbar>
+                <Jumbotron fluid='true' style={{backgroundColor:'black'}}>
                     <Container>
-                        <h1 className='my-5'>Latest Articles</h1>
-                        <hr/>
-                        {latest}
-                        <h1 className='my-5'>Popular Articles</h1>
-                        <hr/>
-                        {popular}
+                        <h1 className='text-center text-white display-1 mt-5' data-aos={"fade-right"}>Crypto News</h1>
                     </Container>
-            </div>
+                </Jumbotron>
+                <Container>
+                <h1 className='my-5 text-white' data-aos={'fade-right'}>Latest Articles</h1>
+                <hr/>
+                <CardColumns>
+                {articles}
+                </CardColumns>
+                </Container>
+        </div>
         )
     }
 }

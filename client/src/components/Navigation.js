@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import {Navbar, Form, Button, FormControl, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Form, Button, FormControl} from 'react-bootstrap'
 import {withRouter,Link} from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 class Navigation extends Component{
     constructor(props){
@@ -10,26 +12,26 @@ class Navigation extends Component{
       this.handleChange = this.handleChange.bind(this)
     }
     handleSearch(){
-      this.props.history.push(`/search/?search=${this.state.search}`)
+      const keyword = this.state.search
+      this.props.history.push(`/search=${keyword}`) 
     }
     handleChange(e){
       this.setState({search:e.target.value})
-      console.log(this.state.search)
     }
-    componentDidCatch(){
-
+    componentDidCatch(error, info) {
+      console.log(error, info)
     }
     render(){
         return(
-            <Navbar bg="light" variant="light">
+            <Navbar style={{backgroundColor:'black'}}>
               <Link to='/'>
-                <Navbar.Brand>News Now</Navbar.Brand>
+                <Navbar.Brand className='text-white mr-auto'>Crypto Currency News</Navbar.Brand>
               </Link>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Form inline onSubmit={this.handleSearch} className="ml-auto">
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" value={this.state.search} onChange={this.handleChange}/>
-                  <Button type='submit' variant="secondary" onClick={this.handleSearch}>Search</Button>
+                  <Button type='submit' variant="outline-light" onClick={this.handleSearch}>Search</Button>
                 </Form>
               </Navbar.Collapse>
           </Navbar>

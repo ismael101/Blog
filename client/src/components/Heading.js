@@ -1,41 +1,34 @@
 import React from 'react'
-import {Card, Row, Col, Image, Button, Badge} from 'react-bootstrap'
+import {Card, Row, Col, Image, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Heading = (props) => {
+    AOS.init({duration : 2000})
     return(
-        <Card border="light" className='my-3'>
-        <Row>
-            <Col xs='12' sm='6'>
+        <Card className='my-5' style={{backgroundColor:'black'}} data-aos={'fade-in'}>
+            <Row>
+                <Col xs={12} sm={6}>
                 <Image
                 width={512}
                 fluid='true'
                 className="mr-3"
-                src={`/${props.article.image}`}
+                src={`${props.article.image}`}
                 />
-            </Col>
-            <Col xs='12' sm='6'>
-                <Card.Title className='px-2 mt-3'>
-                    <span className='text-success'>{props.article.category}</span>
-                    <Badge variant='secondary' className='float-right'> 
-                        <span className='material-icons align-top'>visibility</span>
-                        <span className='ml-2 align-middle'>{props.article.views}</span>
-                    </Badge>
-                </Card.Title>
-                <Card.Text className='py-5 px-5'>
+                </Col>
+                <Col xs={12} sm={6} className='py-5 px-5 text-white'>
                 <h5>{props.article.title}</h5>
-                <p>
-                    {props.article.content.substring(0,300)} ...
-                </p>
+                <p>{props.article.description}</p>
                 <Link to={`/article/${props.article.id}`}>
-                    <Button variant='outline-info'>
+                    <Button variant='outline-light'>
                         Read More
                     </Button>
                 </Link>
-                </Card.Text>
-            </Col>
-        </Row>
-    </Card>
+                </Col>
+            </Row>
+        </Card>
     )
 }
 

@@ -7,26 +7,40 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
-      title: {
+      source: {
+        allowNull:false,
         type: Sequelize.STRING
       },
       author: {
+        allowNull:false,
         type: Sequelize.STRING
       },
-      date: {
-        type: Sequelize.DATE
+      title: {
+        allowNull:false,
+        type: Sequelize.STRING,
+        unique: true
+      },
+      description: {
+        allowNull:false,
+        type: Sequelize.STRING,
+        unique: true
+      },
+      url: {
+        allowNull:false,
+        type: Sequelize.STRING
       },
       image: {
+        allowNull:false,
         type: Sequelize.STRING
+      },
+      published: {
+        allowNull:false,
+        type: Sequelize.DATE
       },
       content: {
-        type: Sequelize.STRING
-      },
-      category: {
-        type: Sequelize.STRING
-      },
-      views: {
-        type: Sequelize.NUMBER
+        allowNull:false,
+        type: Sequelize.TEXT,
+        unique: true
       },
       createdAt: {
         allowNull: false,

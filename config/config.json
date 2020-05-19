@@ -12,12 +12,7 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "bbfawhcv",
-    "password": "pM5_T-Phn_69UG6VV5Dy4RZg5-h95mfR",
-    "database": "bbfawhcv",
-    "host": "isilo.db.elephantsql.com",
-    "dialect": "postgres",
-    "operatorsAliases": false,
-    "logging":true
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   }
 }
