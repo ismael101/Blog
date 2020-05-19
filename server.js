@@ -35,8 +35,8 @@ newsapi.v2.everything({
             .then(() => {
                 console.log('added new article')
             })
-            .catch(() => {
-                console.log('failed to add article')     
+            .catch(err => {
+                console.log(err)     
             })
     })
   }).catch(err => {
