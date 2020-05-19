@@ -25,7 +25,7 @@ exports.getArticles = (req,res,next) => {
               res.status(404).send(err)
           })
     }else{
-        Articles.findAll({order: [['createdAt', 'DESC']], limit:9})
+        Articles.findAll({order: [['published', 'DESC']], limit:9})
             .then(articles => {
                 if(articles){
                     res.status(200).send(articles)
