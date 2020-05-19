@@ -33,7 +33,7 @@ newsapi.v2.everything({
         } 
         Articles.create(article)
             .then(() => {
-                console.log('added new article')
+                console.log('added article')
             })
             .catch(err => {
                 console.log(err)     
